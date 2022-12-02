@@ -10,6 +10,15 @@
 (def input-s (str/replace (slurp "src/adventofcode2022/day1/input-small.txt") #"\r" ""))
 ;(def input2 (line-seq (io/reader "src/adventofcode2022/day1/input.txt")))
 
+(defn group-elves [s]
+  (map #(str/replace % #"\n" " ") (str/split s #"\n\n"))
+
+
+  ;(let [s2 (str/split s #"\n\n")]
+  ;
+  ;  (map #(str/replace % "" " ") s2)
+  )
+
 (defn group-on-empty-strings [s]
   ; ""
   ; "39972"
@@ -26,6 +35,7 @@
   ()
 
   )
+(str/split input-s #"\n\n")
 
 
 ; ""
