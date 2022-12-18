@@ -7,7 +7,7 @@
 
 ;str/replace needed b/c Windows? funky end of lines
 (def input (str/replace (slurp "src/adventofcode2022/day1/input.txt") #"\r" ""))
-(def input-s (str/replace (slurp "src/adventofcode2022/day1/input-small.txt") #"\r" ""))
+;(def input-s (str/replace (slurp "src/adventofcode2022/day1/input-small.txt") #"\r" ""))
 ;(def input2 (line-seq (io/reader "src/adventofcode2022/day1/input.txt")))
 
 (defn group-elves [s]
@@ -22,4 +22,13 @@
     (map str->sum)
     (apply max)))
 
-(println (biggest-calories input))
+(defn three-biggest-calories-sum [s]
+  (->> s
+       group-elves
+       (map str->sum)
+       (sort >)
+       (take 3)
+       (apply +)))
+
+(println "biggests calorie is" (biggest-calories input))
+(println "three biggest are=" (three-biggest-calories-sum input))
