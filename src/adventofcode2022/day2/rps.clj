@@ -80,12 +80,12 @@
 
 
 (defn part2-row-score [row]
+  (println (format "row ======> %s" row))
   (let [their-choice (elf-code (str (first row)))           ;`str` because a character isn't the key in the map
         my-goal (strategy (str (nth row 2)))
         my-choice (determine-my-choice their-choice my-goal)
         result (rps-result their-choice my-choice)]
     (score my-choice result)
-
 
     )
 
