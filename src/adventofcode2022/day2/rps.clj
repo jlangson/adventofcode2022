@@ -69,7 +69,7 @@
                       "Scissors" "Paper"})
 
 (defn determine-my-choice
-  "Decides that I should play based on my strategy and their move"
+  "Decides what I should play based on my strategy and their move"
   [their-choice my-goal]
   (let [m (strategy my-goal)]
     (cond
@@ -82,14 +82,10 @@
 (defn part2-row-score [row]
   (println (format "row ======> %s" row))
   (let [their-choice (elf-code (str (first row)))           ;`str` because a character isn't the key in the map
-        my-goal (strategy (str (nth row 2)))
+        my-goal (str (nth row 2))
         my-choice (determine-my-choice their-choice my-goal)
         result (rps-result their-choice my-choice)]
-    (score my-choice result)
-
-    )
-
-  )
+    (score my-choice result)))
 
 (defn calc-part2-score [str-coll]
   (apply + (map part2-row-score str-coll)))
